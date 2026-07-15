@@ -7,7 +7,6 @@ class LoginScreenController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  final formKey = GlobalKey<FormState>();
 
   RxBool obscurePassword = true.obs;
   RxBool isLoading = false.obs;
@@ -17,7 +16,6 @@ class LoginScreenController extends GetxController {
   }
 
   void login() {
-    if (!formKey.currentState!.validate()) return;
     isLoading.value = true;
     Future.delayed(const Duration(seconds: 2), () {
       isLoading.value = false;

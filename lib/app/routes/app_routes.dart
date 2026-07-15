@@ -10,6 +10,7 @@ abstract class Routes {
   static const DASHBOARD = _Paths.DASHBOARD;
   static const PROFILE_SCREEN = _Paths.PROFILE_SCREEN;
   static const MATCH_PROFILE = _Paths.MATCH_PROFILE;
+  static const FULL_DETAILS_SCREEN = _Paths.FULL_DETAILS_SCREEN;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const DASHBOARD = '/dashboard';
   static const PROFILE_SCREEN = '/profile-screen';
   static const MATCH_PROFILE = '/match-profile';
+  static const FULL_DETAILS_SCREEN = '/full-details-screen';
 }

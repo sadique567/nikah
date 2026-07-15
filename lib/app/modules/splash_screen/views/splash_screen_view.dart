@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../controllers/splash_screen_controller.dart';
 
 class SplashScreenView extends GetView<SplashScreenController> {
   const SplashScreenView({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('SplashScreenView'),
-      //   centerTitle: true,
-      // ),
-      body: const Center(
-        child: Text(
-          'SplashScreenView is working',
-          style: TextStyle(fontSize: 20),
+      body: SafeArea(
+        child: Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.asset(
+              'assets/images/logo.jpeg',
+              height: size.height * 0.4,
+              width: size.width * 0.7,
+              fit: BoxFit.contain,
+              semanticLabel: 'App Logo',
+            ),
+          ),
         ),
       ),
     );

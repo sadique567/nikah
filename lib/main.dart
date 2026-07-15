@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DependecyInjection.init();
-
   runApp(const MyApp());
 }
 

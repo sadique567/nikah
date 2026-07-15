@@ -1,3 +1,4 @@
+import 'package:alnikah/app/modules/full_details_screen/views/full_details_screen_view.dart';
 import 'package:alnikah/app/modules/home_screen/views/home_screen_view.dart';
 import 'package:alnikah/app/modules/match_profile/views/match_profile_view.dart';
 import 'package:alnikah/app/modules/profile_screen/views/profile_screen_view.dart';

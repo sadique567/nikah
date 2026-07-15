@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Brand colors
-  static const Color primary = Color(0xFF4F46E5); // Indigo
-  static const Color primaryLight = Color(0xFF6366F1);
-  static const Color primaryDark = Color(0xFF4338CA);
+  // Brand colors  blue- #2A3E62  gold - #8A623D
+  static const Color primary = Color(0xFF2A3E62);
+  static const Color primaryLight = Color(0xFF2A3E62);
+  static const Color primaryDark = Color(0xFF2A3E62);
 
-  static const Color secondary = Color(0xFF06B6D4); // Cyan
-  static const Color secondaryLight = Color(0xFF22D3EE);
-  static const Color secondaryDark = Color(0xFF0891B2);
+  static const Color secondary = Color(0xFF8A623D);
+  static const Color secondaryLight = Color(0xFF8A623D);
+  static const Color secondaryDark = Color(0xFF8A623D);
 
   static const Color error = Color(0xFFDC2626);
   static const Color success = Color(0xFF16A34A);
@@ -40,6 +40,7 @@ ThemeData lightTheme() {
     onPrimaryContainer: AppColors.primaryDark,
     secondary: AppColors.secondary,
     onSecondary: Colors.white,
+
     secondaryContainer: AppColors.secondaryLight.withOpacity(0.15),
     onSecondaryContainer: AppColors.secondaryDark,
     error: AppColors.error,
@@ -55,6 +56,9 @@ ThemeData lightTheme() {
   );
 
   return ThemeData(
+    secondaryHeaderColor: AppColors.secondary,
+    canvasColor: AppColors.primary,
+    cardColor: AppColors.secondary,
     useMaterial3: true,
     brightness: Brightness.light,
     colorScheme: colorScheme,
@@ -76,21 +80,81 @@ ThemeData lightTheme() {
     ),
 
     textTheme: const TextTheme(
-      displayLarge: TextStyle(fontSize: 57, fontWeight: FontWeight.w400, color: AppColors.lightOnBackground),
-      displayMedium: TextStyle(fontSize: 45, fontWeight: FontWeight.w400, color: AppColors.lightOnBackground),
-      displaySmall: TextStyle(fontSize: 36, fontWeight: FontWeight.w400, color: AppColors.lightOnBackground),
-      headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.w600, color: AppColors.lightOnBackground),
-      headlineMedium: TextStyle(fontSize: 28, fontWeight: FontWeight.w600, color: AppColors.lightOnBackground),
-      headlineSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: AppColors.lightOnBackground),
-      titleLarge: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: AppColors.lightOnSurface),
-      titleMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: AppColors.lightOnSurface),
-      titleSmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.lightOnSurface),
-      bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.lightOnSurface),
-      bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.lightOnSurface),
-      bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: Color(0xFF64748B)),
-      labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.lightOnSurface),
-      labelMedium: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: AppColors.lightOnSurface),
-      labelSmall: TextStyle(fontSize: 11, fontWeight: FontWeight.w500, color: Color(0xFF64748B)),
+      displayLarge: TextStyle(
+        fontSize: 57,
+        fontWeight: FontWeight.w400,
+        color: AppColors.lightOnBackground,
+      ),
+      displayMedium: TextStyle(
+        fontSize: 45,
+        fontWeight: FontWeight.w400,
+        color: AppColors.lightOnBackground,
+      ),
+      displaySmall: TextStyle(
+        fontSize: 36,
+        fontWeight: FontWeight.w400,
+        color: AppColors.lightOnBackground,
+      ),
+      headlineLarge: TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.w600,
+        color: AppColors.lightOnBackground,
+      ),
+      headlineMedium: TextStyle(
+        fontSize: 28,
+        fontWeight: FontWeight.w600,
+        color: AppColors.lightOnBackground,
+      ),
+      headlineSmall: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.w600,
+        color: AppColors.lightOnBackground,
+      ),
+      titleLarge: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
+        color: AppColors.lightOnSurface,
+      ),
+      titleMedium: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: AppColors.lightOnSurface,
+      ),
+      titleSmall: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+        color: AppColors.lightOnSurface,
+      ),
+      bodyLarge: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: AppColors.lightOnSurface,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: AppColors.lightOnSurface,
+      ),
+      bodySmall: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: Color(0xFF64748B),
+      ),
+      labelLarge: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+        color: AppColors.lightOnSurface,
+      ),
+      labelMedium: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+        color: AppColors.lightOnSurface,
+      ),
+      labelSmall: TextStyle(
+        fontSize: 11,
+        fontWeight: FontWeight.w500,
+        color: Color(0xFF64748B),
+      ),
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -133,7 +197,7 @@ ThemeData lightTheme() {
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide.none,
+        borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -166,7 +230,10 @@ ThemeData lightTheme() {
     chipTheme: ChipThemeData(
       backgroundColor: AppColors.lightSurfaceVariant,
       selectedColor: AppColors.primary.withOpacity(0.15),
-      labelStyle: const TextStyle(fontSize: 12, color: AppColors.lightOnSurface),
+      labelStyle: const TextStyle(
+        fontSize: 12,
+        color: AppColors.lightOnSurface,
+      ),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     ),
@@ -174,7 +241,7 @@ ThemeData lightTheme() {
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: AppColors.lightSurface,
       selectedItemColor: AppColors.primary,
-      unselectedItemColor: Color(0xFF94A3B8),
+      unselectedItemColor: AppColors.lightSurface, // Color(0xFF94A3B8),
       type: BottomNavigationBarType.fixed,
       elevation: 8,
     ),
@@ -182,8 +249,15 @@ ThemeData lightTheme() {
     dialogTheme: DialogThemeData(
       backgroundColor: AppColors.lightSurface,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      titleTextStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: AppColors.lightOnSurface),
-      contentTextStyle: const TextStyle(fontSize: 14, color: AppColors.lightOnSurface),
+      titleTextStyle: const TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: AppColors.lightOnSurface,
+      ),
+      contentTextStyle: const TextStyle(
+        fontSize: 14,
+        color: AppColors.lightOnSurface,
+      ),
     ),
 
     snackBarTheme: SnackBarThemeData(
@@ -193,7 +267,7 @@ ThemeData lightTheme() {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
     ),
 
-    iconTheme: const IconThemeData(color: AppColors.lightOnSurface, size: 22),
+    iconTheme: const IconThemeData(color: AppColors.secondaryLight, size: 22),
 
     tabBarTheme: TabBarThemeData(
       labelColor: AppColors.primary,
@@ -203,13 +277,20 @@ ThemeData lightTheme() {
     ),
 
     switchTheme: SwitchThemeData(
-      thumbColor: WidgetStateProperty.resolveWith((states) =>
-          states.contains(WidgetState.selected) ? AppColors.primary : Colors.grey.shade400),
-      trackColor: WidgetStateProperty.resolveWith((states) =>
-          states.contains(WidgetState.selected) ? AppColors.primary.withOpacity(0.4) : Colors.grey.shade300),
+      thumbColor: WidgetStateProperty.resolveWith(
+        (states) => states.contains(WidgetState.selected)
+            ? AppColors.primary
+            : Colors.grey.shade400,
+      ),
+      trackColor: WidgetStateProperty.resolveWith(
+        (states) => states.contains(WidgetState.selected)
+            ? AppColors.primary.withOpacity(0.4)
+            : Colors.grey.shade300,
+      ),
     ),
   );
 }
+
 //------------------Dark Mode--------------------------
 ThemeData darkTheme() {
   final colorScheme = ColorScheme.dark(
@@ -256,21 +337,81 @@ ThemeData darkTheme() {
     ),
 
     textTheme: const TextTheme(
-      displayLarge: TextStyle(fontSize: 57, fontWeight: FontWeight.w400, color: AppColors.darkOnBackground),
-      displayMedium: TextStyle(fontSize: 45, fontWeight: FontWeight.w400, color: AppColors.darkOnBackground),
-      displaySmall: TextStyle(fontSize: 36, fontWeight: FontWeight.w400, color: AppColors.darkOnBackground),
-      headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.w600, color: AppColors.darkOnBackground),
-      headlineMedium: TextStyle(fontSize: 28, fontWeight: FontWeight.w600, color: AppColors.darkOnBackground),
-      headlineSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: AppColors.darkOnBackground),
-      titleLarge: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: AppColors.darkOnSurface),
-      titleMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: AppColors.darkOnSurface),
-      titleSmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.darkOnSurface),
-      bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.darkOnSurface),
-      bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.darkOnSurface),
-      bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: Color(0xFF94A3B8)),
-      labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.darkOnSurface),
-      labelMedium: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: AppColors.darkOnSurface),
-      labelSmall: TextStyle(fontSize: 11, fontWeight: FontWeight.w500, color: Color(0xFF94A3B8)),
+      displayLarge: TextStyle(
+        fontSize: 57,
+        fontWeight: FontWeight.w400,
+        color: AppColors.darkOnBackground,
+      ),
+      displayMedium: TextStyle(
+        fontSize: 45,
+        fontWeight: FontWeight.w400,
+        color: AppColors.darkOnBackground,
+      ),
+      displaySmall: TextStyle(
+        fontSize: 36,
+        fontWeight: FontWeight.w400,
+        color: AppColors.darkOnBackground,
+      ),
+      headlineLarge: TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.w600,
+        color: AppColors.darkOnBackground,
+      ),
+      headlineMedium: TextStyle(
+        fontSize: 28,
+        fontWeight: FontWeight.w600,
+        color: AppColors.darkOnBackground,
+      ),
+      headlineSmall: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.w600,
+        color: AppColors.darkOnBackground,
+      ),
+      titleLarge: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
+        color: AppColors.darkOnSurface,
+      ),
+      titleMedium: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: AppColors.darkOnSurface,
+      ),
+      titleSmall: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+        color: AppColors.darkOnSurface,
+      ),
+      bodyLarge: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: AppColors.darkOnSurface,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: AppColors.darkOnSurface,
+      ),
+      bodySmall: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: Color(0xFF94A3B8),
+      ),
+      labelLarge: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+        color: AppColors.darkOnSurface,
+      ),
+      labelMedium: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+        color: AppColors.darkOnSurface,
+      ),
+      labelSmall: TextStyle(
+        fontSize: 11,
+        fontWeight: FontWeight.w500,
+        color: Color(0xFF94A3B8),
+      ),
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -362,8 +503,15 @@ ThemeData darkTheme() {
     dialogTheme: DialogThemeData(
       backgroundColor: AppColors.darkSurface,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      titleTextStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: AppColors.darkOnSurface),
-      contentTextStyle: const TextStyle(fontSize: 14, color: AppColors.darkOnSurface),
+      titleTextStyle: const TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: AppColors.darkOnSurface,
+      ),
+      contentTextStyle: const TextStyle(
+        fontSize: 14,
+        color: AppColors.darkOnSurface,
+      ),
     ),
 
     snackBarTheme: SnackBarThemeData(
@@ -383,10 +531,16 @@ ThemeData darkTheme() {
     ),
 
     switchTheme: SwitchThemeData(
-      thumbColor: WidgetStateProperty.resolveWith((states) =>
-          states.contains(WidgetState.selected) ? AppColors.primaryLight : Colors.grey.shade600),
-      trackColor: WidgetStateProperty.resolveWith((states) =>
-          states.contains(WidgetState.selected) ? AppColors.primaryLight.withOpacity(0.4) : Colors.grey.shade800),
+      thumbColor: WidgetStateProperty.resolveWith(
+        (states) => states.contains(WidgetState.selected)
+            ? AppColors.primaryLight
+            : Colors.grey.shade600,
+      ),
+      trackColor: WidgetStateProperty.resolveWith(
+        (states) => states.contains(WidgetState.selected)
+            ? AppColors.primaryLight.withOpacity(0.4)
+            : Colors.grey.shade800,
+      ),
     ),
   );
 }

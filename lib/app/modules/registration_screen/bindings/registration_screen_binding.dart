@@ -5,8 +5,9 @@ import '../controllers/registration_screen_controller.dart';
 class RegistrationScreenBinding extends Bindings {
   @override
   void dependencies() {
-   Get.put<RegistrationScreenController>(
-       RegistrationScreenController(),
+    Get.put<RegistrationScreenController>(RegistrationScreenController());
+    Get.lazyPut<RegistrationScreenController>(
+      () => RegistrationScreenController(),
     );
   }
 }

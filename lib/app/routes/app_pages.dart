@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/full_details_screen/bindings/full_details_screen_binding.dart';
+import '../modules/full_details_screen/views/full_details_screen_view.dart';
 import '../modules/home_screen/bindings/home_screen_binding.dart';
 import '../modules/home_screen/views/home_screen_view.dart';
 import '../modules/login_screen/bindings/login_screen_binding.dart';
@@ -35,7 +37,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.REGISTRATION_SCREEN,
-      page: () => const RegistrationScreenView(),
+      page: () => RegistrationScreenView(),
       binding: RegistrationScreenBinding(),
     ),
     GetPage(
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.MATCH_PROFILE,
       page: () => const MatchProfileView(),
       binding: MatchProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.FULL_DETAILS_SCREEN,
+      page: () => const FullDetailsScreenView(),
+      binding: FullDetailsScreenBinding(),
     ),
   ];
 }

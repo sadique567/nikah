@@ -1,8 +1,9 @@
 import 'package:alnikah/app/model/userProfileModel.dart';
 import 'package:get/get.dart';
 
-class ProfileScreenController extends GetxController {
-/// The profile currently being viewed (read-only).
+
+class FullDetailsScreenController extends GetxController {
+  /// The profile currently being viewed (read-only).
   final Rx<UserProfileModel?> profile = Rx<UserProfileModel?>(null);
 
   /// True while profile data is being fetched.
@@ -64,6 +65,4 @@ class ProfileScreenController extends GetxController {
       snackPosition: SnackPosition.BOTTOM,
     );
   }
-
-
 }

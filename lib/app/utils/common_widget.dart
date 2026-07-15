@@ -1,6 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+
+Widget mybackButton({Color? color}) {
+  return IconButton(
+    onPressed: () {
+      Get.back();
+    },
+    icon: Icon(CupertinoIcons.back, color: color),
+  );
+}
 
 void snackbartCustom({
   bool isTrue = true,

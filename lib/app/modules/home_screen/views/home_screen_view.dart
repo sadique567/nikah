@@ -1,3 +1,4 @@
+import 'package:alnikah/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -10,7 +11,21 @@ class HomeScreenView extends GetView<HomeScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Members'), centerTitle: true),
+      // backgroundColor: Theme.of(context).cardColor,
+      appBar: AppBar(
+        title: const Text('Members'),
+        centerTitle: true,
+        automaticallyImplyActions: false,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.snackbar("Pending", "Launch Soon");
+            },
+            icon: Icon(Icons.notification_add),
+          ),
+        ],
+        // backgroundColor: Theme.of(context).cardColor,
+      ),
       body: ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         itemCount: 20,
@@ -140,7 +155,8 @@ class HomeScreenView extends GetView<HomeScreenController> {
                     height: 34,
                     child: OutlinedButton.icon(
                       onPressed: () {
-                        EasyLoading.showInfo("Coming Soon");
+                        // EasyLoading.showInfo("Coming Soon");
+                        Get.toNamed(Routes.FULL_DETAILS_SCREEN);
                       },
                       icon: const Icon(Icons.info_outline, size: 16),
                       label: const Text("More Info"),

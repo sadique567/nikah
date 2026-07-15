@@ -10,13 +10,15 @@ class LoginScreenView extends GetView<LoginScreenController> {
 
   @override
   Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
+
     return Scaffold(
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(24),
             child: Form(
-              key: controller.formKey,
+              key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -42,12 +44,12 @@ class LoginScreenView extends GetView<LoginScreenController> {
 
                   const SizedBox(height: 40),
 
-                  /// Email
+                  /// Email/Phone
                   TextFormField(
                     controller: controller.emailController,
-                    keyboardType: TextInputType.emailAddress,
+                    keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      hintText: "Email",
+                      hintText: "Email/Phone",
                       prefixIcon: const Icon(Icons.email_outlined),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -55,11 +57,12 @@ class LoginScreenView extends GetView<LoginScreenController> {
                     ),
                     validator: (value) {
                       if (value!.trim().isEmpty) {
-                        return "Enter email";
+                        return "Enter Email/Phone";
                       }
 
-                      if (!GetUtils.isEmail(value.trim())) {
-                        return "Enter valid email";
+                      if (!GetUtils.isEmail(value) &&
+                          !GetUtils.isPhoneNumber(value)) {
+                        return "Enter Valid Email/Phone";
                       }
 
                       return null;
@@ -109,9 +112,16 @@ class LoginScreenView extends GetView<LoginScreenController> {
                     () => SizedBox(
                       height: 55,
                       child: ElevatedButton(
-                        onPressed: controller.isLoading.value
-                            ? null
-                            : controller.login,
+                        onPressed: () {
+                          if (controller.isLoading.value) {
+                            return;
+                          }
+
+                          if (!_formKey.currentState!.validate()) return;
+
+                          controller.login();
+                        },
+
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue,
                           foregroundColor: Colors.white,

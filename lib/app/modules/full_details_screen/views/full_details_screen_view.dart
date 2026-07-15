@@ -2,13 +2,12 @@ import 'package:alnikah/app/model/userProfileModel.dart';
 import 'package:alnikah/app/modules/full_details_screen/views/detailSectionCard.dart';
 import 'package:alnikah/app/utils/common_widget.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
-import '../controllers/profile_screen_controller.dart';
+import '../controllers/full_details_screen_controller.dart';
 
-class ProfileScreenView extends GetView<ProfileScreenController> {
-  const ProfileScreenView({super.key});
+class FullDetailsScreenView extends GetView<FullDetailsScreenController> {
+  const FullDetailsScreenView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,12 +59,12 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
           ),
         );
       }),
-      // bottomNavigationBar: Obx(() {
-      //   if (controller.isLoading.value || controller.profile.value == null) {
-      //     return const SizedBox.shrink();
-      //   }
-      //   return _buildBottomActions(primaryColor);
-      // }),
+      bottomNavigationBar: Obx(() {
+        if (controller.isLoading.value || controller.profile.value == null) {
+          return const SizedBox.shrink();
+        }
+        return _buildBottomActions(primaryColor);
+      }),
     );
   }
 
@@ -85,15 +84,14 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
       child: Column(
         children: [
           ReadOnlyProfileAvatar(
-            imageUrl:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3Hgl1gBi1gBPt3eNGiNdQ5szfQhWdnv-xG1ZJzLYSBe7L1n9bJeCVX_u&s=10",
+            imageUrl: profile.profileImageUrl,
             radius: 120,
             fullName: profile.fullName,
             // isVerified: profile.isVerified,
           ),
           const SizedBox(height: 14),
           Text(
-            "Narender Modi (PM)",
+            profile.fullName,
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w700,
@@ -102,21 +100,17 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
           ),
           const SizedBox(height: 4),
           Text(
-            '75 yrs • ${profile.height} • ${profile.maritalStatus}',
+            '${profile.age} yrs • ${profile.height} • ${profile.maritalStatus}',
             style: const TextStyle(fontSize: 13.5, color: Colors.white),
           ),
           const SizedBox(height: 4),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                Icons.location_on,
-                size: 14,
-                color: Theme.of(context).secondaryHeaderColor,
-              ),
+              const Icon(Icons.location_on, size: 14, color: Colors.white),
               const SizedBox(width: 4),
               Text(
-                'New Delhi , Delhi IN',
+                '${profile.city}, ${profile.state}',
                 style: const TextStyle(fontSize: 13, color: Colors.white),
               ),
             ],
@@ -131,8 +125,11 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
                 icon: Icons.mosque,
                 label: '${profile.sect} • ${profile.maslakFiqh}',
               ),
-              QuickFactChip(icon: Icons.school, label: "10 failed"),
-              QuickFactChip(icon: Icons.work, label: "Worst PM"),
+              QuickFactChip(
+                icon: Icons.school,
+                label: profile.highestEducation,
+              ),
+              QuickFactChip(icon: Icons.work, label: profile.occupation),
             ],
           ),
         ],

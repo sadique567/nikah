@@ -11,6 +11,8 @@ abstract class Routes {
   static const PROFILE_SCREEN = _Paths.PROFILE_SCREEN;
   static const MATCH_PROFILE = _Paths.MATCH_PROFILE;
   static const FULL_DETAILS_SCREEN = _Paths.FULL_DETAILS_SCREEN;
+  static const TERMS_CONDITION_SCREEN = _Paths.TERMS_CONDITION_SCREEN;
+  static const EDIT_USER_DETAILS = _Paths.EDIT_USER_DETAILS;
 }
 
 abstract class _Paths {
@@ -23,4 +25,6 @@ abstract class _Paths {
   static const PROFILE_SCREEN = '/profile-screen';
   static const MATCH_PROFILE = '/match-profile';
   static const FULL_DETAILS_SCREEN = '/full-details-screen';
+  static const TERMS_CONDITION_SCREEN = '/terms-condition-screen';
+  static const EDIT_USER_DETAILS = '/edit-user-details';
 }

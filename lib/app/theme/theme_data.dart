@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Brand colors  blue- #2A3E62  gold - #8A623D
-  static const Color primary = Color(0xFF2A3E62);
-  static const Color primaryLight = Color(0xFF2A3E62);
+  // Brand colors  blue- #2A3E62  #2D3D5F  gold - #8A623D
+  static const Color primary = Color(0xFF2D3D5F);
+  static const Color primaryLight = Color(0xFF2D3D5F);
   static const Color primaryDark = Color(0xFF2A3E62);
 
   static const Color secondary = Color(0xFF8A623D);
@@ -288,6 +288,10 @@ ThemeData lightTheme() {
             : Colors.grey.shade300,
       ),
     ),
+ 
+ 
+
+ 
   );
 }
 

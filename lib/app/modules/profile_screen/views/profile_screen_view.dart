@@ -1,7 +1,10 @@
 import 'package:alnikah/app/model/userProfileModel.dart';
 import 'package:alnikah/app/modules/full_details_screen/views/detailSectionCard.dart';
+import 'package:alnikah/app/routes/app_pages.dart';
 import 'package:alnikah/app/utils/common_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'package:get/get.dart';
 
@@ -25,6 +28,15 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
         leading: mybackButton(color: Colors.white),
         automaticallyImplyActions: false,
         centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.toNamed(Routes.EDIT_USER_DETAILS);
+              // EasyLoading.showInfo("Pending");
+            },
+            icon: Icon(Icons.edit, color: Colors.white),
+          ),
+        ],
       ),
       body: Obx(() {
         if (controller.isLoading.value) {
@@ -143,8 +155,8 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
   Widget _buildAboutCard(BuildContext context, UserProfileModel profile) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.only(bottom: 14),
-      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.only(bottom: 7),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(14),
@@ -350,61 +362,6 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
         children: [
           DetailRow(label: 'Diet', value: profile.diet),
           DetailRow(label: 'Smoker', value: profile.smoker ? 'Yes' : 'No'),
-        ],
-      ),
-    );
-  }
-
-  // ---------------------------------------------------------------------
-  // Bottom action bar
-  // ---------------------------------------------------------------------
-  Widget _buildBottomActions(Color primaryColor) {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.06),
-            blurRadius: 12,
-            offset: const Offset(0, -3),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: OutlinedButton.icon(
-              onPressed: controller.onShortlist,
-              icon: Icon(Icons.bookmark_border, color: primaryColor),
-              label: Text('Shortlist', style: TextStyle(color: primaryColor)),
-              style: OutlinedButton.styleFrom(
-                side: BorderSide(color: primaryColor),
-                padding: const EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: ElevatedButton.icon(
-              onPressed: controller.onSendInterest,
-              icon: const Icon(Icons.favorite_border, color: Colors.white),
-              label: const Text(
-                'Send Interest',
-                style: TextStyle(color: Colors.white),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: primaryColor,
-                padding: const EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-            ),
-          ),
         ],
       ),
     );

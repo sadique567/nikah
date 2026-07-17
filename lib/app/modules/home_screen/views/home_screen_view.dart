@@ -1,6 +1,5 @@
 import 'package:alnikah/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 import '../controllers/home_screen_controller.dart';

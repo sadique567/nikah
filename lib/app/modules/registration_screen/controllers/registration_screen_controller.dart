@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegistrationScreenController extends GetxController {
-
   final fullNameController = TextEditingController();
   final phoneController = TextEditingController();
   final password = TextEditingController();
@@ -19,11 +18,11 @@ class RegistrationScreenController extends GetxController {
     isLoading.value = true;
 
     await Future.delayed(const Duration(seconds: 1), () {
-      Get.offAllNamed(Routes.LOGIN_SCREEN);
+      // Get.offAllNamed(Routes.LOGIN_SCREEN);
+      Get.toNamed(Routes.TERMS_CONDITION_SCREEN);
     });
 
     isLoading.value = false;
-
 
     Get.snackbar(
       "Success",
@@ -36,6 +35,8 @@ class RegistrationScreenController extends GetxController {
   void onClose() {
     fullNameController.dispose();
     phoneController.dispose();
+    password.dispose();
+    confirmPassword.dispose();
     super.onClose();
   }
 }

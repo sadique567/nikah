@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/edit_user_details/bindings/edit_user_details_binding.dart';
+import '../modules/edit_user_details/views/edit_user_details_view.dart';
 import '../modules/full_details_screen/bindings/full_details_screen_binding.dart';
 import '../modules/full_details_screen/views/full_details_screen_view.dart';
 import '../modules/home_screen/bindings/home_screen_binding.dart';
@@ -16,6 +18,8 @@ import '../modules/registration_screen/bindings/registration_screen_binding.dart
 import '../modules/registration_screen/views/registration_screen_view.dart';
 import '../modules/splash_screen/bindings/splash_screen_binding.dart';
 import '../modules/splash_screen/views/splash_screen_view.dart';
+import '../modules/terms_condition_screen/bindings/terms_condition_screen_binding.dart';
+import '../modules/terms_condition_screen/views/terms_condition_screen_view.dart';
 
 part 'app_routes.dart';
 
@@ -64,6 +68,16 @@ class AppPages {
       name: _Paths.FULL_DETAILS_SCREEN,
       page: () => const FullDetailsScreenView(),
       binding: FullDetailsScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.TERMS_CONDITION_SCREEN,
+      page: () => const TermsConditionScreenView(),
+      binding: TermsConditionScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_USER_DETAILS,
+      page: () => const EditUserDetailsView(),
+      binding: EditUserDetailsBinding(),
     ),
   ];
 }
